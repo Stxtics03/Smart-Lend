@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- Assuming the same style.css for consistency -->
+  <style>
+    .hidden {
+      display: none;
+    }
+    .btn-gradient {
+      display: inline-block;
+      padding: 0.5em 1em; /* Shorter padding for the button */
+      font-size: 1em;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      background: #333; /* Black background */
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Smaller box shadow for a compact look */
+      transition: background 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .btn-gradient:hover {
+      background: #555; /* Darker background on hover */
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Adjusted box shadow for hover effect */
+    }
+    .contact-container form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    textarea {
+      height: 100px; /* Adjust the height to align with the other input fields */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">XYZ Bank</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <form>
+      <label for="contact-reason">Select a Reason:</label>
+      <select id="contact-reason" name="contact-reason" onchange="showForm()">
+        <option value="">Select an option</option>
+        <option value="create-account">Create a New Account</option>
+        <option value="contact-branch">Contact Nearby Branch</option>
+        <option value="report-issue">Report an Issue</option>
+      </select>
+
+      <!-- Create Account Form -->
+      <div id="create-account-form" class="hidden">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Postal Code" required>
+      </div>
+
+      <!-- Contact Branch Form -->
+      <div id="contact-branch-form" class="hidden">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Postal Code" required>
+      </div>
+
+      <!-- Report Issue Form -->
+      <div id="report-issue-form" class="hidden">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-gradient">Submit</button>
+    </form>
+  </div>
+  <script>
+    function showForm() {
+      const reason = document.getElementById('contact-reason').value;
+      document.getElementById('create-account-form').classList.add('hidden');
+      document.getElementById('contact-branch-form').classList.add('hidden');
+      document.getElementById('report-issue-form').classList.add('hidden');
+
+      if (reason === 'create-account') {
+        document.getElementById('create-account-form').classList.remove('hidden');
+      } else if (reason === 'contact-branch') {
+        document.getElementById('contact-branch-form').classList.remove('hidden');
+      } else if (reason === 'report-issue') {
+        document.getElementById('report-issue-form').classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>

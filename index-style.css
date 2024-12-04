@@ -1,0 +1,91 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling while loading */
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    z-index: 10;
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+  }
+  
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    background: linear-gradient(135deg, #0D0E26, #2c2d4a); /* Gradient background */
+    color: white;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  
+  .hero-content h1 {
+    font-size: 4em; /* Increased font size */
+    margin: 0.5em 0;
+  }
+  
+  .hero-content p {
+    font-size: 1.2em;
+    margin: 0.5em 0;
+  }
+  
+  .btn-gradient {
+    display: inline-block;
+    padding: 1em 2em;
+    margin-top: 1em;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif; /* Applying Poppins font */
+    font-weight: bold; /* Making the text bolder */
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.4), rgba(255, 153, 0, 0.4), rgba(255, 255, 0, 0.4), rgba(0, 255, 0, 0.4), rgba(0, 255, 255, 0.4), rgba(0, 0, 255, 0.4), rgba(255, 0, 255, 0.4));
+    background-size: 300% 100%;
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.5), 0 0 60px rgba(255, 0, 255, 0.5);
+    transition: background-position 0.5s, box-shadow 0.5s;
+    animation: rainbowMove 5s linear infinite;
+  }
+  
+  .btn-gradient:hover {
+    background-position: 100% 0%;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7), 0 0 40px rgba(255, 0, 255, 0.7), 0 0 60px rgba(255, 0, 255, 0.7);
+  }
+  
+  @keyframes rainbowMove {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 0%; }
+  }
+  
+  .star-effect {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    background: linear-gradient(45deg, #ffffff, #ffe5e5, #ffcccc, #ffb3b3, #ff9999, #ff8080, #ff6666, #ff4d4d, #ff3333, #ff1a1a, #ff0000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: starAnimate 2s linear infinite;
+    font-size: 4em; /* Increase the font size */
+    line-height: 1.2; /* Maintain line height */
+  }
+  
+  @keyframes starAnimate {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+  

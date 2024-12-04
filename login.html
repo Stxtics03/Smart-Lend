@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">XYZ Bank</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="login-container">
+    <div class="login-tabs">
+      <div class="tab" id="customer-tab" onclick="showLogin('customer')">Customer/Account no</div>
+      <div class="tab" id="aadhar-tab" onclick="showLogin('aadhar')">Aadhar ID Login</div>
+      <div class="tab" id="pan-tab" onclick="showLogin('pan')">Pan Id Login</div>
+    </div>
+    <div class="login-forms">
+      <div class="login-form" id="customer-form">
+        <h2>Login with Customer ID/Account Number</h2>
+        <form action="credentials.html" method="POST">
+          <input type="text" name="username" placeholder="Customer ID or Account Number" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button type="submit" class="btn-login">Login</button>
+        </form>
+      </div>
+      <div class="login-form" id="aadhar-form">
+        <h2>Login with Aadhar ID</h2>
+        <form action="credentials.html" method="POST">
+          <input type="text" name="username" placeholder="Aadhar ID" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button type="submit" class="btn-login">Login</button>
+        </form>
+      </div>
+      <div class="login-form" id="pan-form">
+        <h2>Login with Pan ID</h2>
+        <form action="credentials.html" method="POST">
+          <input type="text" name="username" placeholder="Pan ID" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button type="submit" class="btn-login">Login</button>
+        </form>
+      </div>
+    </div>
+    <div class="create-account">
+      <p>Don't have an account? <a href="contact.html">Create New Account</a></p>
+    </div>
+  </div>
+  <script>
+    function showLogin(type) {
+      document.querySelectorAll('.login-form').forEach(form => form.style.display = 'none');
+      document.getElementById(`${type}-form`).style.display = 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      showLogin('customer');
+    });
+  </script>
+</body>
+</html>

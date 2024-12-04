@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Bank - Loan Application</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Using the same style.css for consistency -->
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100%;
+            background: linear-gradient(135deg, #0D0E26, #2c2d4a); /* Matching gradient background */
+            color: white;
+        }
+        header {
+            background: #0D0E26; /* Dark background to match gradient start */
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        header .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff9900; /* Hover color */
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .content {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            color: #333; /* Text color set to dark */
+        }
+        footer {
+            background: #0D0E26; /* Dark background to match gradient start */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function checkCredit() {
+            var amount = document.getElementById("loanAmount").value;
+            var creditScore = document.getElementById("creditScore").value;
+            if (creditScore > 9) {
+                window.location.href = "loan_approved.html";
+            } else {
+                window.location.href = "loan_denied.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">XYZ Bank</div>
+        <nav>
+            <ul>
+                <li><a href="new-loan.html">New Loan Options</a></li>
+                <li><a href="credentials.html">Account Information</a></li>
+                <li><a href="login.html" class="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <h2>Loan Application</h2>
+            <form onsubmit="event.preventDefault(); checkCredit();">
+                <label for="loanAmount">Loan Amount:</label>
+                <input type="number" id="loanAmount" name="loanAmount" required><br><br>
+                <label for="creditScore">Credit Score:</label>
+                <input type="number" id="creditScore" name="creditScore" required><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>XYZ Bank &copy; 2024, All Rights Reserved</p>
+    </footer>
+</body>
+</html>
